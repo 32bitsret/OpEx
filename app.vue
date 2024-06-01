@@ -155,7 +155,40 @@
     </div>
     <div class="relative isolate py-24 bg-[#FF5D31] min-h-[60vh]">
       <div class="container px-6 lg:px-8">
+        <h4 class="uppercase text-sm text-center font-semibold text-[#0D243F]">What they say</h4>
+        <h2 class="tracking-[-.3px] text-2xl max-w-2xl mx-auto text-white my-4 text-center font-black">Our Users Kind
+          Words</h2>
+        <p class="max-w-lg mb-14 mx-auto text-center text-white tracking-[-.2px]">Hear from startups like yours about
+          how EverydayMoney has transformed their operational expense management and helped sustain their financial
+          runway.</p>
+        <div class="mt-16">
+          <UCarousel v-slot="{ item, index }" :items="carouselItems"
+                     :ui="{ container: 'gap-10', item: 'snap-start w-1/3' }">
+            <!--            <div class="text-center mx-auto">
+                          <img :src="`/${item.avatar.src}.png`" :alt="item.name" class="rounded-full w-full h-48 mb-2"
+                               draggable="false">
 
+                          <p class="font-semibold">
+                           {{ item.name }}
+                          </p>
+                        </div>-->
+            <figure class="rounded-[16px] flex flex-col justify-between bg-[#FF3F0A] p-8 text-sm leading-6">
+              <div>
+                <h4 class="text-white font-bold mb-2">{{ item.title }}</h4>
+                <blockquote class="text-white">
+                  <p>{{ `“${item.subtitle}”` }}</p>
+                </blockquote>
+              </div>
+              <figcaption class="mt-6 flex items-center gap-x-4">
+                <NuxtImg class="h-10 w-10 rounded-[16px] bg-gray-50" :src="`/${item.avatar.src}.png`" alt=""/>
+                <div>
+                  <div class="font-semibold text-white">{{ item.name }}</div>
+                  <div class="text-white">{{ `${item.position}` }}</div>
+                </div>
+              </figcaption>
+            </figure>
+          </UCarousel>
+        </div>
       </div>
     </div>
   </div>
@@ -199,6 +232,35 @@ const features = [
   },
 ]
 
+const carouselItems = [{
+  title: "It’s just incredible!",
+  subtitle:
+      "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
+  name: 'John Doe',
+  position: 'Owner',
+  avatar: {src: 'user1'}
+}, {
+  title: "Satisfied User here!",
+  subtitle:
+      "Never thought that with Spend.In managing my business expenses is so easy! Been using this platform for 3 months and still counting!",
+  name: 'Jane Doe',
+  position: 'Marketer',
+  avatar: {src: 'user2'}
+}, {
+  title: "No doubt, Spending is the best!",
+  subtitle:
+      "The best! That’s what I want to say to this platform, didn’t know that there’s a platform to help you  manage your business expenses like this! Very recommended to you who have a big business!",
+  name: 'Jon Snow',
+  position: 'King',
+  avatar: {src: 'user3'}
+}, {
+  title: "It’s just incredible!",
+  subtitle:
+      "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
+  name: 'Doctor Fu',
+  position: 'HR',
+  avatar: {src: 'user1'}
+}]
 const mobileMenuOpen = ref(false)
 </script>
 
