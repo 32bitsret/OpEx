@@ -138,12 +138,24 @@
         <p class="max-w-lg mb-14 mx-auto text-center text-[#90A3BF] tracking-[-.2px]">In just few easy step, you are all
           set to
           manage your business finances. Manage all expenses with EverdayMoney all in one place.</p>
-        <div class="grid grid-cols-3 gap-16">
+        <div class="grid w-full grid-cols-3 gap-16 max-w-3xl mx-auto">
           <div class="flex flex-col gap-4" v-for="howTo in howTos" :key="howTo.title">
             <NuxtImg class="w-full" :src="`/${howTo.img}.svg`" :alt="howTo.title"/>
-            <p class="text-center pl-2 text-white text-sm">{{ howTo.title }}</p>
+            <p class="pl-8 text-center text-white">{{ howTo.title }}</p>
           </div>
         </div>
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <a href="#"
+             class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
+            started for Free</a>
+          <a href="#" class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
+            Pricing</a>
+        </div>
+      </div>
+    </div>
+    <div class="relative isolate py-24 bg-[#FF5D31] min-h-[60vh]">
+      <div class="container px-6 lg:px-8">
+
       </div>
     </div>
   </div>
