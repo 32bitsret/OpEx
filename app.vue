@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#001835]">
+  <div class="bg-[#001835] overflow-x-hidden max-w-full">
     <header class="">
       <nav class="absolute container inset-x-0 top-0 z-50 flex items-center justify-between p-6 lg:px-8"
            aria-label="Global">
@@ -78,8 +78,8 @@
               gain insights into your day-to-day expenses.</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
               <a href="#"
-                 class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
-                started for Free</a>
+                 class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
+                a Free Demo</a>
               <a href="#" class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
                 Pricing</a>
             </div>
@@ -109,7 +109,7 @@
             <dl class="max-w-xl pl-10 space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
               <div v-for="feature in features" :key="feature.name" class="relative pl-9">
                 <dt>
-                  <div class="absolute left-[-30px] rounded-[16px] p-3 bg-[#FF5D31] top-1 text-indigo-600">
+                  <div class="absolute left-[-30px] rounded-[16px] p-3 bg-[#FF5D31] top-1 text-[#1C5ED3]">
                     <NuxtImg :src="`/${feature.icon}.svg`" class="w-5"/>
                   </div>
                   <span class="text-2xl text-[#040815] font-medium">{{ feature.name }}</span>
@@ -138,7 +138,7 @@
         <p class="max-w-lg mb-14 mx-auto text-center text-[#90A3BF] tracking-[-.2px]">In just few easy step, you are all
           set to
           manage your business finances. Manage all expenses with EverdayMoney all in one place.</p>
-        <div class="grid w-full grid-cols-3 gap-16 max-w-3xl mx-auto">
+        <div class="grid w-full md:grid-cols-3 gap-16 max-w-3xl mx-auto">
           <div class="flex flex-col gap-4" v-for="howTo in howTos" :key="howTo.title">
             <NuxtImg class="w-full" :src="`/${howTo.img}.svg`" :alt="howTo.title"/>
             <p class="pl-8 text-center text-white">{{ howTo.title }}</p>
@@ -146,7 +146,7 @@
         </div>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <a href="#"
-             class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
+             class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
             started for Free</a>
           <a href="#" class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
             Pricing</a>
@@ -199,7 +199,7 @@
             <RadioGroupOption as="template" v-for="option in frequencies" :key="option.value" :value="option" v-slot="{
                         checked }">
               <div
-                  :class="[checked ? 'bg-indigo-600 text-white' : 'text-gray-500', 'cursor-pointer rounded-full px-2.5 py-1']">
+                  :class="[checked ? 'bg-[#1C5ED3] text-white' : 'text-gray-500', 'cursor-pointer rounded-full px-2.5 py-1']">
                 <span>{{ option.label }}</span>
               </div>
             </RadioGroupOption>
@@ -211,9 +211,9 @@
             <div>
               <div class="flex items-center justify-between gap-x-4">
                 <div class="flex items-center gap-2">
-                  <NuxtImg :src="`${tier.name}-tier.svg`" class="w-5" :alt="tier.name"/>
+                  <NuxtImg :src="`${tier.name.toLowerCase()}-tier.svg`" class="w-5" :alt="tier.name"/>
                   <h3 :id="tier.id"
-                      :class="[tier.mostPopular ? 'text-indigo-600' : 'text-gray-900', 'text-lg font-semibold leading-8']">
+                      :class="[tier.mostPopular ? 'text-[#1C5ED3]' : 'text-gray-900', 'text-lg font-semibold leading-8']">
                     {{ tier.name }}</h3>
                 </div>
                 <p v-if="tier.mostPopular"
@@ -235,13 +235,105 @@
               </ul>
             </div>
             <a :href="tier.href" :aria-describedby="tier.id"
-               class="bg-[#7568FF] text-white shadow-sm hover:bg-indigo-500 mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7568FF]">{{
+               class="bg-[#1C5ED3] text-white shadow-sm mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7568FF]">{{
                 tier.name === 'Free' ? 'Get your Free Plan' : 'Get started'
               }}</a>
           </div>
         </div>
       </div>
     </div>
+    <div class="relative isolate pt-24 min-h-[30vh]">
+      <div class="absolute inset-x-0 top-[50%] translate-y-[-50%] -z-10 transform-gpu overflow-hidden opacity-5"
+           aria-hidden="true">
+        <NuxtImg class="md:w-[50%] w-full" src="/header-logo.svg"/>
+      </div>
+      <div class="container px-6 lg:px-8">
+        <div
+            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div class="lg:pr-8 lg:pt-4 pb-24">
+            <div class="lg:max-w-lg">
+              <h2 class="mt-2 text-3xl text-white font-bold tracking-tight text-gray-900 sm:text-4xl">Start Track Your
+                Business
+                Expenses Today</h2>
+              <p class="mt-6 text-lg leading-8 text-[#596780]">Are you ready to make your business more organized? Join
+                Us
+                Now!</p>
+            </div>
+            <a href="#"
+               class="rounded-[22px] inline-block mt-16 bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Join
+              Us Now!</a>
+          </div>
+          <div>
+            <NuxtImg src="/last-banner.svg"
+                     alt="Banner screenshot"
+                     class="w-full max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 mb-[-20px]"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="relative bg-white" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" class="sr-only">Footer</h2>
+      <div class="container px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div class="space-y-8">
+            <NuxtImg class="h-7" src="/footer-logo.svg"
+                     alt="EDM Logo"/>
+            <p class="text-sm leading-6 text-gray-600">Data visualization, and expense management
+              for your business.</p>
+          </div>
+          <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div class="md:grid xl:justify-items-end md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">Product</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li v-for="item in footerNavigation.product" :key="item.name">
+                    <a :href="item.href" class="text-sm leading-6 text-gray-600 hover:text-gray-900">{{ item.name }}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-10 md:mt-0">
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">Company</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li v-for="item in footerNavigation.company" :key="item.name">
+                    <a :href="item.href" class="text-sm leading-6 text-gray-600 hover:text-gray-900">{{ item.name }}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="md:grid xl:justify-items-end md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">Resources</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li v-for="item in footerNavigation.resources" :key="item.name">
+                    <a :href="item.href" class="text-sm leading-6 text-gray-600 hover:text-gray-900">{{ item.name }}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-10 md:mt-0">
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">Follow Us</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li v-for="item in footerNavigation.follow" :key="item.name">
+                    <a :href="item.href" class="text-sm leading-6 text-gray-600 hover:text-gray-900">{{ item.name }}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-16 pb-24 border-t border-gray-900/10 pt-8 md:flex justify-between sm:mt-20 lg:mt-24">
+          <div
+              class="flex items-center mb-6 md:mb-0 justify-center space-x-4 text-sm font-semibold leading-6 text-slate-500">
+            <a class="text-[#1A202C]" href="#">Privacy policy</a>
+            <div class="h-4 w-px bg-slate-500/60"></div>
+            <a class="text-[#1A202C]" href="#">Terms & Conditions</a>
+            <div class="h-4 w-px bg-slate-500/60"></div>
+            <a class="text-[#1A202C]" href="#">Cookie Policy</a>
+          </div>
+          <p class="text-xs leading-5 text-center md:text-right text-gray-700">&copy; 2024 Everydaymoney. All rights
+            reserved.</p>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -364,6 +456,38 @@ const pricingTiers = [
     mostPopular: false,
   },
 ]
+
+
+const footerNavigation = {
+  product: [
+    {name: 'Digital Invoice', href: '#'},
+    {name: 'Insights', href: '#'},
+    {name: 'Reimbursements', href: '#'},
+    {name: 'Virtual Assistant', href: '#'},
+    {name: 'Artificial Intelligence', href: '#'},
+  ],
+  company: [
+    {name: 'About Us', href: '#'},
+    {name: 'Newsletters', href: '#'},
+    {name: 'Our Partners', href: '#'},
+    {name: 'Career', href: '#'},
+    {name: 'Contact Us', href: '#'},
+  ],
+  resources: [
+    {name: 'Blog', href: '#'},
+    {name: 'Pricing', href: '#'},
+    {name: 'FAQ', href: '#'},
+    {name: 'Events', href: '#'},
+    {name: 'Ebook & Guide', href: '#'},
+  ],
+  follow: [
+    {name: 'LinkedIn', href: '#'},
+    {name: 'X (Twitter)', href: '#'},
+    {name: 'Instagram', href: '#'},
+    {name: 'Facebook', href: '#'},
+    {name: 'YouTube', href: '#'},
+  ]
+}
 const mobileMenuOpen = ref(false)
 const frequency = ref(frequencies[0])
 </script>
