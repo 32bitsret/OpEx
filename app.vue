@@ -77,7 +77,7 @@
             <p class="mt-6 md:text-2xl text-lg leading-8 font-light text-[#90A3BF]">Sustain your financial runway and
               gain insights into your day-to-day expenses.</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-              <a href="#"
+              <a href="https://calendly.com/d/ckhw-fph-hqv"
                  class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
                 started for Free</a>
               <a href="#" class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
