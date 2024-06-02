@@ -22,8 +22,8 @@
                class="text-xs font-light leading-6 text-white">{{ item.name }}</a>
           </div>
           <div class="hidden lg:ml-28 lg:flex gap-12 lg:flex-1 lg:justify-end items-center">
-            <a href="#" class="text-white font-light text-xs">Login</a>
-            <a type="button" href="#"
+            <a href="https://business.everydaymoney.app/auth/login" class="text-white font-light text-xs">Login</a>
+            <a type="button" href="https://calendly.com/d/ckhw-fph-hqv"
                class="bg-[#1C5ED3] rounded-[22px] bold py-2 px-10  text-xs font-light leading-6 text-white">Sign Up</a>
           </div>
         </div>
@@ -145,7 +145,7 @@
           </div>
         </div>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="#"
+          <a href="https://calendly.com/d/ckhw-fph-hqv"
              class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
             started for Free</a>
           <a href="#" class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
@@ -322,7 +322,7 @@ const pricingTiers = [
   {
     name: 'Free',
     id: 'tier-free',
-    href: '#',
+    href: 'https://calendly.com/d/ckhw-fph-hqv',
     price: {monthly: '$0', annually: '$0'},
     miniDesc: 'Perfect plan to get started',
     description: 'A free plan grants you access to some cool features of Spend.In.',
@@ -332,7 +332,7 @@ const pricingTiers = [
   {
     name: 'Pro',
     id: 'tier-pro',
-    href: '#',
+    href: 'https://calendly.com/d/ckhw-fph-hqv',
     price: {monthly: '$12', annually: '$288'},
     miniDesc: 'Perfect plan for professionals!',
     description: 'For professional only! Start arranging your expenses with our best templates.',
@@ -349,7 +349,7 @@ const pricingTiers = [
   {
     name: 'Ultimate',
     id: 'tier-ultimate',
-    href: '#',
+    href: 'https://calendly.com/d/ckhw-fph-hqv',
     price: {monthly: '$33', annually: '$576'},
     miniDesc: 'Best suits for great company!',
     description: 'If you a finance manager at big  company, this plan is a perfect match.',
