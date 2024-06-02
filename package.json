@@ -13,5 +13,8 @@
     "@nuxt/ui": "^2.16.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "nuxt": "^3.11.2"
+  },
+  "devDependencies": {
+    "nuxt-anchorscroll": "^1.0.3"
   }
 }

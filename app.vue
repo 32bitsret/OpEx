@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#001835] overflow-x-hidden max-w-full">
+  <div class="bg-[#001835] overflow-x-hidden max-w-full" id="top">
     <header class="">
       <nav class="absolute container inset-x-0 top-0 z-50 flex items-center justify-between p-6 lg:px-8"
            aria-label="Global">
@@ -18,12 +18,12 @@
             </button>
           </div>
           <div class="hidden lg:flex lg:gap-x-12">
-            <a v-for="item in navigation" :key="item.name" :href="item.href"
+            <a v-for="item in navigation" :key="item.name" :href="`#${item.href}`" @click="scrollToAnchor(item.href)"
                class="text-xs font-light leading-6 text-white">{{ item.name }}</a>
           </div>
           <div class="hidden lg:ml-28 lg:flex gap-12 lg:flex-1 lg:justify-end items-center">
-            <a href="#" class="text-white font-light text-xs">Login</a>
-            <a type="button" href="#"
+            <a href="https://business.everydaymoney.app/auth/login" class="text-white font-light text-xs">Login</a>
+            <a type="button" href="https://calendly.com/d/ckhw-fph-hqv"
                class="bg-[#1C5ED3] rounded-[22px] bold py-2 px-10  text-xs font-light leading-6 text-white">Sign Up</a>
           </div>
         </div>
@@ -34,7 +34,7 @@
             class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#001835] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div class="flex items-center justify-between">
             <a href="#" class="-m-1.5 p-1.5">
-              <span class="sr-only">Your Company</span>
+              <span class="sr-only">EveryDayMoney</span>
               <NuxtImg class="h-8 w-auto" src="/logo.svg" alt="Full width logo"/>
             </a>
             <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
@@ -52,9 +52,12 @@
                 </a>
               </div>
               <div class="py-6">
-                <a href="#"
+                <a href="https://business.everydaymoney.app/auth/login"
                    class="-mx-3 block rounded-[22px] px-7 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Log
                   in</a>
+                <a href="https://calendly.com/d/ckhw-fph-hqv"
+                   class="-mx-3 block rounded-[22px] px-7 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Sign
+                  up</a>
               </div>
             </div>
           </div>
@@ -77,10 +80,10 @@
             <p class="mt-6 md:text-2xl text-lg leading-8 font-light text-[#90A3BF]">Sustain your financial runway and
               gain insights into your day-to-day expenses.</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-              <a href="#"
-                 class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
-                a Free Demo</a>
-              <a href="#" class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
+              <a href="https://calendly.com/d/ckhw-fph-hqv"
+                 class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get a Free Demo</a>
+              <a href="#pricing"
+                 class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
                 Pricing</a>
             </div>
           </div>
@@ -94,7 +97,7 @@
         </div>
       </div>
     </div>
-    <div class="bg-white relative py-24 isolate min-h-[60vh]">
+    <div class="bg-white relative py-24 isolate min-h-[60vh]" id="about">
       <div class="container px-6 lg:px-8">
         <h4 class="text-center text-lg">About Us</h4>
         <h2 class="font-bold text-[#1C5ED3] text-4xl text-center my-4 tracking-tight">Helping Startups Manage
@@ -125,7 +128,7 @@
         </div>
       </div>
     </div>
-    <div class="relative isolate py-24 min-h-[60vh]">
+    <div class="relative isolate py-24 min-h-[60vh]" id="how-it-works">
       <div class="container px-6 lg:px-8">
         <div class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden"
              aria-hidden="true">
@@ -145,11 +148,11 @@
           </div>
         </div>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="#"
+          <a href="https://calendly.com/d/ckhw-fph-hqv"
              class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
             started for Free</a>
-          <a href="#" class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
-            Pricing</a>
+          <a href="#pricing"
+             class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See Pricing</a>
         </div>
       </div>
     </div>
@@ -162,8 +165,11 @@
           how EverydayMoney has transformed their operational expense management and helped sustain their financial
           runway.</p>
         <div class="mt-16">
-          <UCarousel v-slot="{ item, index }" :items="carouselItems"
-                     :ui="{ container: 'gap-10', item: 'snap-start lg:w-1/3 sm:w-1/2 w-full' }">
+          <UCarousel v-slot="{ item, index }" ref="carouselRef" :items="carouselItems"
+                     :ui="{ container: 'gap-10', item: 'snap-start lg:w-1/3 sm:w-1/2 w-full', arrows: { wrapper:
+                     'slider-icons'
+                     } }"
+                     arrows>
             <figure class="rounded-[16px] flex flex-col justify-between bg-[#FF3F0A] p-8 text-sm leading-6">
               <div>
                 <h4 class="text-white font-bold mb-2">{{ item.title }}</h4>
@@ -184,7 +190,7 @@
       </div>
     </div>
 
-    <div class="bg-white py-24 sm:py-32">
+    <div class="bg-white py-24 sm:py-32" id="pricing">
       <div class="container px-6 lg:px-8">
         <div class="mx-auto max-w-4xl text-center">
           <p class="mt-2 text-3xl font-black text-[#0D121F] sm:text-4xl tracking-[-.3px]">Ready to Get Started?</p>
@@ -252,7 +258,7 @@
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div class="lg:pr-8 lg:pt-4 pb-24">
             <div class="lg:max-w-lg">
-              <h2 class="mt-2 text-3xl text-white font-bold tracking-tight text-gray-900 sm:text-4xl">Start Track Your
+              <h2 class="mt-2 text-3xl text-white font-bold tracking-tight sm:text-4xl">Start Track Your
                 Business
                 Expenses Today</h2>
               <p class="mt-6 text-lg leading-8 text-[#596780]">Are you ready to make your business more organized? Join
@@ -345,10 +351,31 @@
 })*/
 import {Dialog, DialogPanel, RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue";
 
+const carouselRef = ref()
+
+onMounted(() => {
+  setInterval(() => {
+    if (!carouselRef.value) return
+
+    if (carouselRef.value.page === carouselRef.value.pages) {
+      return carouselRef.value.select(0)
+    }
+
+    carouselRef.value.next()
+  }, 3000)
+})
+const {scrollToAnchor, scrollToTop} = useAnchorScroll({
+  toTop: {
+    scrollOptions: {
+      behavior: 'smooth',
+      offsetTop: 0,
+    }
+  },
+})
 const navigation = [
-  {name: 'About Us', href: '#'},
-  {name: 'How it Works', href: '#'},
-  {name: 'Pricing', href: '#'},
+  {name: 'About Us', href: 'about'},
+  {name: 'How it Works', href: 'how-it-works'},
+  {name: 'Pricing', href: 'pricing'},
 ]
 
 const howTos = [
@@ -499,5 +526,11 @@ const frequency = ref(frequencies[0])
 
 body {
   @apply antialiased font-sans text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900;
+}
+.slider-icons {
+  position: relative;
+  width: 110px;
+  margin: 0 auto;
+  margin-top: 75px;
 }
 </style>
