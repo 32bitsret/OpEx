@@ -163,15 +163,7 @@
           runway.</p>
         <div class="mt-16">
           <UCarousel v-slot="{ item, index }" :items="carouselItems"
-                     :ui="{ container: 'gap-10', item: 'snap-start w-1/3' }">
-            <!--            <div class="text-center mx-auto">
-                          <img :src="`/${item.avatar.src}.png`" :alt="item.name" class="rounded-full w-full h-48 mb-2"
-                               draggable="false">
-
-                          <p class="font-semibold">
-                           {{ item.name }}
-                          </p>
-                        </div>-->
+                     :ui="{ container: 'gap-10', item: 'snap-start lg:w-1/3 sm:w-1/2 w-full' }">
             <figure class="rounded-[16px] flex flex-col justify-between bg-[#FF3F0A] p-8 text-sm leading-6">
               <div>
                 <h4 class="text-white font-bold mb-2">{{ item.title }}</h4>
@@ -188,6 +180,62 @@
               </figcaption>
             </figure>
           </UCarousel>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white py-24 sm:py-32">
+      <div class="container px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl text-center">
+          <p class="mt-2 text-3xl font-black text-[#0D121F] sm:text-4xl tracking-[-.3px]">Ready to Get Started?</p>
+        </div>
+        <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-[#596780] tracking-[-.2px]">Choose a plan
+          that suits your
+          business needs</p>
+        <div class="mt-16 flex justify-center">
+          <!--          <RadioGroup v-model="frequency" class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200">-->
+          <!--            <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>-->
+          <!--            <RadioGroupOption as="template" v-for="option in frequencies" :key="option.value" :value="option" v-slot="{ checked }">-->
+          <!--              <div :class="[checked ? 'bg-indigo-600 text-white' : 'text-gray-500', 'cursor-pointer rounded-full px-2.5 py-1']">-->
+          <!--                <span>{{ option.label }}</span>-->
+          <!--              </div>-->
+          <!--            </RadioGroupOption>-->
+          <!--          </RadioGroup>-->
+        </div>
+        <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          <div class="p-6 rounded-[16px] flex flex-col justify-between bg-[#F3F5F7]" v-for="tier in pricingTiers"
+               :key="tier.id">
+            <div>
+              <div class="flex items-center justify-between gap-x-4">
+                <div class="flex items-center gap-2">
+                <NuxtImg :src="`${tier.name}-tier.svg`" class="w-5" :alt="tier.name" />
+                <h3 :id="tier.id"
+                    :class="[tier.mostPopular ? 'text-indigo-600' : 'text-gray-900', 'text-lg font-semibold leading-8']">
+                  {{ tier.name }}</h3>
+                </div>
+                <p v-if="tier.mostPopular"
+                   class="rounded-full bg-[#0D243F] px-2.5 py-1 text-xs leading-5 text-white">Most
+                  popular</p>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-[#596780]">{{ tier.miniDesc }}</p>
+              <p class="mt-6 flex items-baseline gap-x-1">
+                <span class="text-4xl font-bold tracking-tight text-gray-900">{{ tier.price[frequency.value] }}</span>
+                <span class="text-sm font-semibold leading-6 text-gray-600">{{ frequency.priceSuffix }}</span>
+              </p>
+              <p class="mt-4 text-sm leading-6 text-[#1A202C]">{{ tier.description }}</p>
+              <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
+                <li v-for="feature in tier.features" :key="feature" class="flex gap-x-3">
+                  <UIcon name="i-heroicons-check-circle-20-solid" class="h-6 w-5 flex-none text-[#7568FF]"
+                         aria-hidden="true"/>
+                  {{ feature }}
+                </li>
+              </ul>
+            </div>
+            <a :href="tier.href" :aria-describedby="tier.id"
+               class="bg-[#7568FF] text-white shadow-sm hover:bg-indigo-500 mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7568FF]">{{
+                tier.name === 'Free' ? 'Get your Free Plan' : 'Get started'
+              }}</a>
+          </div>
         </div>
       </div>
     </div>
@@ -261,7 +309,59 @@ const carouselItems = [{
   position: 'HR',
   avatar: {src: 'user1'}
 }]
+
+const frequencies = [
+  {value: 'monthly', label: 'Monthly', priceSuffix: '/month'},
+  {value: 'annually', label: 'Annually', priceSuffix: '/year'},
+]
+const pricingTiers = [
+  {
+    name: 'Free',
+    id: 'tier-free',
+    href: '#',
+    price: {monthly: '$0', annually: '$0'},
+    miniDesc: 'Perfect plan to get started',
+    description: 'A free plan grants you access to some cool features of Spend.In.',
+    features: ['Sync across device', '5 workspace', 'Collaborate with 5 user'],
+    mostPopular: false,
+  },
+  {
+    name: 'Pro',
+    id: 'tier-pro',
+    href: '#',
+    price: {monthly: '$12', annually: '$288'},
+    miniDesc: 'Perfect plan for professionals!',
+    description: 'For professional only! Start arranging your expenses with our best templates.',
+    features: [
+      'Everything in Free Plan',
+      'Unlimited workspace',
+      'Collaborative workspace',
+      'Sharing permission',
+      'Admin tools',
+      '100+ integrations',
+    ],
+    mostPopular: true,
+  },
+  {
+    name: 'Ultimate',
+    id: 'tier-ultimate',
+    href: '#',
+    price: {monthly: '$33', annually: '$576'},
+    miniDesc: 'Best suits for great company!',
+    description: 'If you a finance manager at big  company, this plan is a perfect match.',
+    features: [
+      'Everything in Pro Plan',
+      'Daily performance reports',
+      'Dedicated assistant',
+      'Artificial intelligence',
+      'Marketing tools & automations',
+      'Advanced security',
+    ],
+    mostPopular: false,
+  },
+]
 const mobileMenuOpen = ref(false)
+const frequency = ref(frequencies[0])
 </script>
 
 <style>
