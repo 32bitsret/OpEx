@@ -323,7 +323,7 @@
         <div class="mt-16 pb-24 border-t border-gray-900/10 pt-8 md:flex justify-between sm:mt-20 lg:mt-24">
           <div
               class="flex items-center mb-6 md:mb-0 justify-center space-x-4 text-sm font-semibold leading-6 text-slate-500">
-            <a class="text-[#1A202C]" href="#">Privacy policy</a>
+            <a class="text-[#1A202C]" href="https://blog.everydaymoney.app/privacy-policy">Privacy policy</a>
             <div class="h-4 w-px bg-slate-500/60"></div>
             <a class="text-[#1A202C]" href="#">Terms & Conditions</a>
             <div class="h-4 w-px bg-slate-500/60"></div>
@@ -474,18 +474,18 @@ const footerNavigation = {
     {name: 'Contact Us', href: '#'},
   ],
   resources: [
-    {name: 'Blog', href: '#'},
+    {name: 'Blog', href: 'https://blog.everydaymoney.app'},
     {name: 'Pricing', href: '#'},
     {name: 'FAQ', href: '#'},
     {name: 'Events', href: '#'},
     {name: 'Ebook & Guide', href: '#'},
   ],
   follow: [
-    {name: 'LinkedIn', href: '#'},
-    {name: 'X (Twitter)', href: '#'},
-    {name: 'Instagram', href: '#'},
-    {name: 'Facebook', href: '#'},
-    {name: 'YouTube', href: '#'},
+    {name: 'LinkedIn', href: 'https://www.linkedin.com/company/everydaymoney/'},
+    {name: 'X (Twitter)', href: 'https://x.com/everydaymoneyhq'},
+    {name: 'Instagram', href: 'https://instagram.com/everydaymoneyhq'},
+    {name: 'Facebook', href: 'https://facebook.com/everydaymoneyng'},
+    {name: 'YouTube', href: 'https://www.youtube.com/channel/UCQkd3xmlhhIkdYUCvhEKvQQ'},
   ]
 }
 const mobileMenuOpen = ref(false)
