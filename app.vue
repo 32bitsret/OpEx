@@ -193,14 +193,17 @@
           that suits your
           business needs</p>
         <div class="mt-16 flex justify-center">
-          <!--          <RadioGroup v-model="frequency" class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200">-->
-          <!--            <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>-->
-          <!--            <RadioGroupOption as="template" v-for="option in frequencies" :key="option.value" :value="option" v-slot="{ checked }">-->
-          <!--              <div :class="[checked ? 'bg-indigo-600 text-white' : 'text-gray-500', 'cursor-pointer rounded-full px-2.5 py-1']">-->
-          <!--                <span>{{ option.label }}</span>-->
-          <!--              </div>-->
-          <!--            </RadioGroupOption>-->
-          <!--          </RadioGroup>-->
+          <RadioGroup v-model="frequency"
+                      class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200">
+            <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
+            <RadioGroupOption as="template" v-for="option in frequencies" :key="option.value" :value="option" v-slot="{
+                        checked }">
+              <div
+                  :class="[checked ? 'bg-indigo-600 text-white' : 'text-gray-500', 'cursor-pointer rounded-full px-2.5 py-1']">
+                <span>{{ option.label }}</span>
+              </div>
+            </RadioGroupOption>
+          </RadioGroup>
         </div>
         <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div class="p-6 rounded-[16px] flex flex-col justify-between bg-[#F3F5F7]" v-for="tier in pricingTiers"
@@ -208,10 +211,10 @@
             <div>
               <div class="flex items-center justify-between gap-x-4">
                 <div class="flex items-center gap-2">
-                <NuxtImg :src="`${tier.name}-tier.svg`" class="w-5" :alt="tier.name" />
-                <h3 :id="tier.id"
-                    :class="[tier.mostPopular ? 'text-indigo-600' : 'text-gray-900', 'text-lg font-semibold leading-8']">
-                  {{ tier.name }}</h3>
+                  <NuxtImg :src="`${tier.name}-tier.svg`" class="w-5" :alt="tier.name"/>
+                  <h3 :id="tier.id"
+                      :class="[tier.mostPopular ? 'text-indigo-600' : 'text-gray-900', 'text-lg font-semibold leading-8']">
+                    {{ tier.name }}</h3>
                 </div>
                 <p v-if="tier.mostPopular"
                    class="rounded-full bg-[#0D243F] px-2.5 py-1 text-xs leading-5 text-white">Most
@@ -248,7 +251,7 @@
  definePageMeta({
  colorMode: 'light',
 })*/
-import {Dialog, DialogPanel} from "@headlessui/vue";
+import {Dialog, DialogPanel, RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue";
 
 const navigation = [
   {name: 'About Us', href: '#'},
@@ -280,35 +283,36 @@ const features = [
   },
 ]
 
-const carouselItems = [{
-  title: "It’s just incredible!",
-  subtitle:
-      "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
-  name: 'John Doe',
-  position: 'Owner',
-  avatar: {src: 'user1'}
-}, {
-  title: "Satisfied User here!",
-  subtitle:
-      "Never thought that with Spend.In managing my business expenses is so easy! Been using this platform for 3 months and still counting!",
-  name: 'Jane Doe',
-  position: 'Marketer',
-  avatar: {src: 'user2'}
-}, {
-  title: "No doubt, Spending is the best!",
-  subtitle:
-      "The best! That’s what I want to say to this platform, didn’t know that there’s a platform to help you  manage your business expenses like this! Very recommended to you who have a big business!",
-  name: 'Jon Snow',
-  position: 'King',
-  avatar: {src: 'user3'}
-}, {
-  title: "It’s just incredible!",
-  subtitle:
-      "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
-  name: 'Doctor Fu',
-  position: 'HR',
-  avatar: {src: 'user1'}
-}]
+const carouselItems = [
+  {
+    title: "It’s just incredible!",
+    subtitle:
+        "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
+    name: 'John Doe',
+    position: 'Owner',
+    avatar: {src: 'user1'}
+  }, {
+    title: "Satisfied User here!",
+    subtitle:
+        "Never thought that with Spend.In managing my business expenses is so easy! Been using this platform for 3 months and still counting!",
+    name: 'Jane Doe',
+    position: 'Marketer',
+    avatar: {src: 'user2'}
+  }, {
+    title: "No doubt, Spending is the best!",
+    subtitle:
+        "The best! That’s what I want to say to this platform, didn’t know that there’s a platform to help you  manage your business expenses like this! Very recommended to you who have a big business!",
+    name: 'Jon Snow',
+    position: 'King',
+    avatar: {src: 'user3'}
+  }, {
+    title: "It’s just incredible!",
+    subtitle:
+        "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
+    name: 'Doctor Fu',
+    position: 'HR',
+    avatar: {src: 'user1'}
+  }]
 
 const frequencies = [
   {value: 'monthly', label: 'Monthly', priceSuffix: '/month'},
