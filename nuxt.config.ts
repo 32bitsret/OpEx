@@ -10,17 +10,17 @@ export default defineNuxtConfig({
         classSuffix: '-mode',
         storageKey: 'edm-color-mode'
     },
-    modules: ["@nuxt/ui", "@nuxt/image", '@nuxtjs/google-fonts', "nuxt-anchorscroll"],
+    modules: [
+      "@nuxt/ui",
+      "@nuxt/image",
+      '@nuxtjs/google-fonts',
+      "@aleios10/nuxt-scroll-spy-composable",
+      '@pinia/nuxt',
+      '@pinia-plugin-persistedstate/nuxt'
+    ],
     googleFonts: {
         families: {
             Poppins: [300, 400, 600, 700, 900]
         }
-    },
-    anchorscroll: {
-        hooks: [
-            // Or any valid hook if needed
-            // Default is `page:finish`
-            'page:transition:finish',
-        ],
-    },
+    }
 })

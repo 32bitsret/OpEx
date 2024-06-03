@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#001835] overflow-x-hidden max-w-full" id="top">
-    <header class="">
+    <header class="" v-scroll-spy-link>
       <nav class="absolute container inset-x-0 top-0 z-50 flex items-center justify-between p-6 lg:px-8"
            aria-label="Global">
         <div class="flex lg:flex-1">
@@ -18,7 +18,7 @@
             </button>
           </div>
           <div class="hidden lg:flex lg:gap-x-12">
-            <a v-for="item in navigation" :key="item.name" :href="`#${item.href}`" @click="scrollToAnchor(item.href)"
+            <a v-for="item in navigation" :key="item.name" :href="`#${item.href}`" v-scroll-spy-link
                class="text-xs font-light leading-6 text-white">{{ item.name }}</a>
           </div>
           <div class="hidden lg:ml-28 lg:flex gap-12 lg:flex-1 lg:justify-end items-center">
@@ -81,7 +81,8 @@
               gain insights into your day-to-day expenses.</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
               <a href="https://calendly.com/d/ckhw-fph-hqv"
-                 class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get a Free Demo</a>
+                 class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
+                a Free Demo</a>
               <a href="#pricing"
                  class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
                 Pricing</a>
@@ -340,6 +341,23 @@
         </div>
       </div>
     </footer>
+    <div class="bg-gray-100 py-6 flex flex-col justify-center">
+      <div v-if="cookie"
+           class="max-w-screen-lg mx-auto fixed bg-white inset-x-5 p-5 bottom-[10px] rounded-lg drop-shadow-2xl flex gap-4 flex-wrap md:flex-nowrap text-center md:text-left items-center justify-center md:justify-between">
+        <div class="w-full">This website uses cookies to ensure you get the best experience on our website.</div>
+        <div class="flex gap-4 items-center flex-shrink-0">
+          <!-- setTimeout is for demo purposes only. Remove it & add to cookies
+               so that the popup won't appear next time they load. -->
+          <button @click="cookie = false"
+                  class="text-indigo-600 focus:outline-none hover:underline">Decline
+          </button>
+          <button @click="cookie = false"
+                  class="bg-indigo-500 px-5 py-2 text-white rounded-md hover:bg-indigo-700 focus:outline-none">Allow
+            Cookies
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -350,8 +368,13 @@
  colorMode: 'light',
 })*/
 import {Dialog, DialogPanel, RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue";
+import {useStore} from "~/store";
+import { storeToRefs } from 'pinia'
 
 const carouselRef = ref()
+const store = useStore()
+const { cookie } = storeToRefs(store)
+
 
 onMounted(() => {
   setInterval(() => {
@@ -364,14 +387,7 @@ onMounted(() => {
     carouselRef.value.next()
   }, 3000)
 })
-const {scrollToAnchor, scrollToTop} = useAnchorScroll({
-  toTop: {
-    scrollOptions: {
-      behavior: 'smooth',
-      offsetTop: 0,
-    }
-  },
-})
+const {vScrollSpyLink, vScrollSpyActive} = useScrollSpy()
 const navigation = [
   {name: 'About Us', href: 'about'},
   {name: 'How it Works', href: 'how-it-works'},
@@ -527,10 +543,10 @@ const frequency = ref(frequencies[0])
 body {
   @apply antialiased font-sans text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900;
 }
+
 .slider-icons {
   position: relative;
   width: 110px;
-  margin: 0 auto;
-  margin-top: 75px;
+  margin: 75px auto 0;
 }
 </style>
