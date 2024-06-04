@@ -22,7 +22,7 @@
                class="text-xs font-light leading-6 text-white">{{ item.name }}</a>
           </div>
           <div class="hidden lg:ml-28 lg:flex gap-12 lg:flex-1 lg:justify-end items-center">
-            <a href="https://business.everydaymoney.app/auth/login" class="text-white font-light text-xs">Login</a>
+            <a href="https://business.everydaymoney.app" class="text-white font-light text-xs">Login</a>
             <a type="button" href="https://calendly.com/d/ckhw-fph-hqv"
                class="bg-[#1C5ED3] rounded-[22px] bold py-2 px-10  text-xs font-light leading-6 text-white">Sign Up</a>
           </div>
