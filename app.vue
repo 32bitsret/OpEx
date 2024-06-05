@@ -137,11 +137,9 @@
         </div>
         <h4 class="uppercase text-sm text-center font-semibold text-[#1C5ED3]">How it Works</h4>
         <h2 class="tracking-[-.3px] text-2xl max-w-2xl mx-auto text-white my-4 text-center font-black">Few Easy Steps
-          and
-          Done</h2>
-        <p class="max-w-lg mb-14 mx-auto text-center text-[#90A3BF] tracking-[-.2px]">In just few easy step, you are all
-          set to
-          manage your business finances. Manage all expenses with EverdayMoney all in one place.</p>
+          and Done</h2>
+        <p class="max-w-lg mb-14 mx-auto text-center text-[#90A3BF] tracking-[-.2px]">In just few easy step, you are
+          all set to manage your business finances. Manage all expenses with EverdayMoney all in one place.</p>
         <div class="grid w-full md:grid-cols-3 gap-16 max-w-3xl mx-auto">
           <div class="flex flex-col gap-4" v-for="howTo in howTos" :key="howTo.title">
             <NuxtImg class="w-full" :src="`/${howTo.img}.svg`" :alt="howTo.title"/>
@@ -154,6 +152,49 @@
             started for Free</a>
           <a href="#pricing"
              class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See Pricing</a>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white relative isolate py-24 min-h-[60vh]" id="services">
+      <div class="container px-6 lg:px-8">
+        <h4 class="font-medium mb-4">Services</h4>
+        <div class="grid md:grid-cols-[1fr_2fr] gap-10">
+          <h3 class="text-[#1C5ED3] tracking-tight text-2xl font-semibold">Do even more with EverydayMoney</h3>
+          <p class="text-[#596780] tracking-tight">
+            Unlock the Full Potential of Your Startup with Our Comprehensive Suite of Tools and Solutions
+            Designed to Optimize Operational Expense Management, Enhance Financial Planning, and Sustain Your
+            Business Growth 
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10 mt-16">
+          <div class="">
+            <h4 class="tracking-tight text-xl font-semibold mb-2">Carryout local & cross-border transfer</h4>
+            <ul class="list-disc pl-7">
+              <li> Pay suppliers from any part of the world  Pay by transfers</li>
+              <li> Pay by transfers</li>
+              <li> Refund employees</li>
+            </ul>
+          </div>
+          <div class="">
+            <h4 class="tracking-tight text-xl font-semibold mb-2">Card Management</h4>
+            <ul class="list-disc pl-7">
+              <li> Issue Virtual Cards for all online payments</li>
+              <li> Issue Physical cards for off-line and online payments</li>
+              <li> Assign Virtual and Physical cards to budgets</li>
+              <li> Assign Payment cards to Employees</li>
+            </ul>
+            <h4 class="tracking-tight text-xl mt-10 font-semibold mb-2">Accounting</h4>
+            <ul class="list-disc pl-7">
+              <li>Synchronise your expense data with your accounting software</li>
+            </ul>
+          </div>
+          <div class="">
+            <h4 class="tracking-tight text-xl font-semibold mb-2">Payroll</h4>
+            <ul class="list-disc pl-7">
+              <li> Employee management</li>
+              <li> Pay Your Employees </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -369,11 +410,11 @@
 })*/
 import {Dialog, DialogPanel, RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue";
 import {useStore} from "~/store";
-import { storeToRefs } from 'pinia'
+import {storeToRefs} from 'pinia'
 
 const carouselRef = ref()
 const store = useStore()
-const { cookie } = storeToRefs(store)
+const {cookie} = storeToRefs(store)
 
 
 onMounted(() => {
