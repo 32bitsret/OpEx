@@ -168,7 +168,7 @@
         </div>
         <div class="grid md:grid-cols-3 gap-10 mt-16">
           <div class="">
-            <h4 class="tracking-tight text-xl font-semibold mb-2">Carryout local & cross-border transfer</h4>
+            <h4 class="tracking-tight text-lg font-semibold mb-2">Carryout local & cross-border transfer</h4>
             <ul class="list-disc pl-7">
               <li> Pay suppliers from any part of the world  Pay by transfers</li>
               <li> Pay by transfers</li>
@@ -176,20 +176,20 @@
             </ul>
           </div>
           <div class="">
-            <h4 class="tracking-tight text-xl font-semibold mb-2">Card Management</h4>
+            <h4 class="tracking-tight text-lg font-semibold mb-2">Card Management</h4>
             <ul class="list-disc pl-7">
               <li> Issue Virtual Cards for all online payments</li>
               <li> Issue Physical cards for off-line and online payments</li>
               <li> Assign Virtual and Physical cards to budgets</li>
               <li> Assign Payment cards to Employees</li>
             </ul>
-            <h4 class="tracking-tight text-xl mt-10 font-semibold mb-2">Accounting</h4>
+            <h4 class="tracking-tight text-lg mt-10 font-semibold mb-2">Accounting</h4>
             <ul class="list-disc pl-7">
               <li>Synchronise your expense data with your accounting software</li>
             </ul>
           </div>
           <div class="">
-            <h4 class="tracking-tight text-xl font-semibold mb-2">Payroll</h4>
+            <h4 class="tracking-tight text-lg font-semibold mb-2">Payroll</h4>
             <ul class="list-disc pl-7">
               <li> Employee management</li>
               <li> Pay Your Employees </li>
