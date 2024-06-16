@@ -38,6 +38,14 @@ export default defineNuxtConfig({
             {
                 code: 'fr',
                 name: 'Français'
-            }]
+            }],
+        messages: {
+            en: {
+                welcome: 'Welcome'
+            },
+            fr: {
+                welcome: 'Bienvenue'
+            }
+        }
     },
 })

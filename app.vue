@@ -1,27 +1,35 @@
 <template>
   <div class="bg-[#001835] overflow-x-hidden max-w-full" id="top">
-    <header class="" v-scroll-spy-link>
+    <header class="">
       <nav class="absolute container inset-x-0 top-0 z-50 flex items-center justify-between p-6 lg:px-8"
            aria-label="Global">
         <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">EveryDayMoney</span>
-            <NuxtImg class="h-8 w-auto" src="/full-logo.svg" alt="Full width logo"/>
+            <NuxtImg class="h-8 w-auto hidden lg:block" src="/full-logo.svg" alt="Full width logo"/>
+            <NuxtImg class="h-8 w-auto lg:hidden" src="/logo.svg" alt="Full width logo"/>
           </a>
         </div>
         <div class="flex items-center">
-          <div class="flex lg:hidden">
+          <div class="hidden lg:flex lg:gap-x-12">
+            <a v-for="item in navigation" :key="item.name" :href="`#${item.href}`"
+               class="text-xs font-light leading-6 text-white">{{ item.name }}</a>
+          </div>
+          <div class="lg:ml-28 mr-12">
+            <UInputMenu class="w-[90px]" v-model="selected" :options="people">
+              <template #leading>
+                <UAvatar :src="`/${selected?.language}.svg`" size="2xs" />
+              </template>
+            </UInputMenu>
+          </div>
+          <div class="flex gap-4 lg:hidden">
             <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
                     @click="mobileMenuOpen = true">
               <span class="sr-only">Open main menu</span>
               <UIcon name="i-heroicons-bars-2" class="h-6 w-6 text-white" aria-hidden="true"/>
             </button>
           </div>
-          <div class="hidden lg:flex lg:gap-x-12">
-            <a v-for="item in navigation" :key="item.name" :href="`#${item.href}`" v-scroll-spy-link
-               class="text-xs font-light leading-6 text-white">{{ item.name }}</a>
-          </div>
-          <div class="hidden lg:ml-28 lg:flex gap-12 lg:flex-1 lg:justify-end items-center">
+          <div class="hidden lg:flex gap-12 lg:flex-1 lg:justify-end items-center">
             <a href="https://business.everydaymoney.app" class="text-white font-light text-xs">Login</a>
             <a type="button" href="https://calendly.com/d/ckhw-fph-hqv"
                class="bg-[#1C5ED3] rounded-[22px] bold py-2 px-10  text-xs font-light leading-6 text-white">Sign Up</a>
@@ -76,7 +84,7 @@
           <div class="mx-auto w-full
            text-center">
             <h1 class="text-4xl font-bold tracking-tight text-white md:text-7xl">Manage Your Startup's OpEx Efficiently
-              with EverydayMoney</h1>
+              with EverydayMoney {{ $t('welcome') }}</h1>
             <p class="mt-6 md:text-2xl text-lg leading-8 font-light text-[#90A3BF]">Sustain your financial runway and
               gain insights into your day-to-day expenses.</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
@@ -136,8 +144,7 @@
           <NuxtImg class="w-full" src="/fullbg-logo.svg"/>
         </div>
         <h4 class="uppercase text-sm text-center font-semibold text-[#1C5ED3]">How it Works</h4>
-        <h2 class="tracking-[-.3px] text-2xl max-w-2xl mx-auto text-white my-4 text-center font-black">Few Easy Steps
-          and Done</h2>
+        <h2 class="tracking-[-.3px] text-2xl max-w-2xl mx-auto text-white my-4 text-center font-black">Few Easy Steps and Done</h2>
         <p class="max-w-lg mb-14 mx-auto text-center text-[#90A3BF] tracking-[-.2px]">In just few easy step, you are
           all set to manage your business finances. Manage all expenses with EverdayMoney all in one place.</p>
         <div class="grid w-full md:grid-cols-3 gap-16 max-w-3xl mx-auto">
@@ -402,19 +409,43 @@
   </div>
 </template>
 
-<script setup>
-/* import {definePageMeta} from "nuxt/dist/pages/runtime";
-
- definePageMeta({
- colorMode: 'light',
-})*/
-import {Dialog, DialogPanel, RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue";
-import {useStore} from "~/store";
+<script setup lang="ts">
 import {storeToRefs} from 'pinia'
+import {Dialog, DialogPanel, RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue"
+import {useStore} from "~/store"
+import type { Avatar } from '#ui/types'
 
+const people = [{
+  id: '1',
+  label: 'EN',
+  language: 'en'
+}, {
+  id: '2',
+  label: 'FR',
+  language: 'fr'
+}]
+
+const selected = ref(people[0])
+
+const { locale, locales } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+
+const availableLocales = computed(() => {
+  return locales.value.filter(i => i.code !== locale.value)
+})
+const localeRoute = useLocaleRoute()
 const carouselRef = ref()
 const store = useStore()
-const {cookie} = storeToRefs(store)
+const {
+  cookie,
+  navigation,
+  howTos,
+  features,
+  carouselItems,
+  frequencies,
+  pricingTiers,
+  footerNavigation
+} = storeToRefs(store)
 
 
 onMounted(() => {
@@ -428,154 +459,9 @@ onMounted(() => {
     carouselRef.value.next()
   }, 3000)
 })
-const {vScrollSpyLink, vScrollSpyActive} = useScrollSpy()
-const navigation = [
-  {name: 'About Us', href: 'about'},
-  {name: 'How it Works', href: 'how-it-works'},
-  {name: 'Pricing', href: 'pricing'},
-]
-
-const howTos = [
-  {title: 'Register your Spend.In account.', img: 'how-1'},
-  {title: 'Fill in the list of your business expenses.', img: 'how-2'},
-  {title: 'Done, let’s continue the work.', img: 'how-3'},
-]
-
-const features = [
-  {
-    name: 'Sustain your financial runway with efficient OpEx management',
-    description: 'Efficient OpEx management to keep your business running smoothly.',
-    icon: 'wallet-check',
-  },
-  {
-    name: 'Gain insights and control over your day-to-day expenses',
-    description: 'Understand and control your day-to-day expenses.',
-    icon: 'eye',
-  },
-  {
-    name: 'Plan for the future with accurate expense forecasts',
-    description: '',
-    icon: 'status-up',
-  },
-]
-
-const carouselItems = [
-  {
-    title: "It’s just incredible!",
-    subtitle:
-        "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
-    name: 'John Doe',
-    position: 'Owner',
-    avatar: {src: 'user1'}
-  }, {
-    title: "Satisfied User here!",
-    subtitle:
-        "Never thought that with Spend.In managing my business expenses is so easy! Been using this platform for 3 months and still counting!",
-    name: 'Jane Doe',
-    position: 'Marketer',
-    avatar: {src: 'user2'}
-  }, {
-    title: "No doubt, Spending is the best!",
-    subtitle:
-        "The best! That’s what I want to say to this platform, didn’t know that there’s a platform to help you  manage your business expenses like this! Very recommended to you who have a big business!",
-    name: 'Jon Snow',
-    position: 'King',
-    avatar: {src: 'user3'}
-  }, {
-    title: "It’s just incredible!",
-    subtitle:
-        "It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
-    name: 'Doctor Fu',
-    position: 'HR',
-    avatar: {src: 'user1'}
-  }]
-
-const frequencies = [
-  {value: 'monthly', label: 'Monthly', priceSuffix: '/month'},
-  {value: 'annually', label: 'Annually', priceSuffix: '/year'},
-]
-const pricingTiers = [
-  {
-    name: 'Free',
-    id: 'tier-free',
-    href: '#',
-    price: {monthly: '$0', annually: '$0'},
-    miniDesc: 'Perfect plan to get started',
-    description: 'A free plan grants you access to some cool features of Spend.In.',
-    features: ['Sync across device', '5 workspace', 'Collaborate with 5 user'],
-    mostPopular: false,
-  },
-  {
-    name: 'Pro',
-    id: 'tier-pro',
-    href: '#',
-    price: {monthly: '$12', annually: '$288'},
-    miniDesc: 'Perfect plan for professionals!',
-    description: 'For professional only! Start arranging your expenses with our best templates.',
-    features: [
-      'Everything in Free Plan',
-      'Unlimited workspace',
-      'Collaborative workspace',
-      'Sharing permission',
-      'Admin tools',
-      '100+ integrations',
-    ],
-    mostPopular: true,
-  },
-  {
-    name: 'Ultimate',
-    id: 'tier-ultimate',
-    href: '#',
-    price: {monthly: '$33', annually: '$576'},
-    miniDesc: 'Best suits for great company!',
-    description: 'If you a finance manager at big  company, this plan is a perfect match.',
-    features: [
-      'Everything in Pro Plan',
-      'Daily performance reports',
-      'Dedicated assistant',
-      'Artificial intelligence',
-      'Marketing tools & automations',
-      'Advanced security',
-    ],
-    mostPopular: false,
-  },
-]
-
-
-const footerNavigation = {
-  product: [
-    {name: 'Digital Invoice', href: '#'},
-    {name: 'Insights', href: '#'},
-    {name: 'Reimbursements', href: '#'},
-    {name: 'Virtual Assistant', href: '#'},
-    {name: 'Artificial Intelligence', href: '#'},
-  ],
-  company: [
-    {name: 'About Us', href: '#'},
-    {name: 'Newsletters', href: '#'},
-    {name: 'Our Partners', href: '#'},
-    {name: 'Career', href: '#'},
-    {name: 'Contact Us', href: '#'},
-  ],
-  resources: [
-    {name: 'Blog', href: 'https://blog.everydaymoney.app'},
-    {name: 'Pricing', href: '#'},
-    {name: 'FAQ', href: '#'},
-    {name: 'Events', href: '#'},
-    {name: 'Ebook & Guide', href: '#'},
-  ],
-  follow: [
-    {name: 'LinkedIn', href: 'https://www.linkedin.com/company/everydaymoney/'},
-    {name: 'X (Twitter)', href: 'https://x.com/everydaymoneyhq'},
-    {name: 'Instagram', href: 'https://instagram.com/everydaymoneyhq'},
-    {name: 'Facebook', href: 'https://facebook.com/everydaymoneyng'},
-    {name: 'YouTube', href: 'https://www.youtube.com/channel/UCQkd3xmlhhIkdYUCvhEKvQQ'},
-  ]
-}
 const mobileMenuOpen = ref(false)
-const frequency = ref(frequencies[0])
+const frequency = ref(frequencies.value[0])
 </script>
-
 <style>
 * {
   font-family: Poppins, sans-serif;
