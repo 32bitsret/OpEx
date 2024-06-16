@@ -31,7 +31,7 @@
           </div>
           <div class="hidden lg:flex gap-12 lg:flex-1 lg:justify-end items-center">
             <a href="https://business.everydaymoney.app" class="text-white font-light text-xs">Login</a>
-            <a type="button" href="https://calendly.com/d/ckhw-fph-hqv"
+            <a type="button" href="https://calendly.com/everydaymoney/30min"
                class="bg-[#1C5ED3] rounded-[22px] bold py-2 px-10  text-xs font-light leading-6 text-white">Sign Up</a>
           </div>
         </div>
@@ -63,7 +63,7 @@
                 <a href="https://business.everydaymoney.app/auth/login"
                    class="-mx-3 block rounded-[22px] px-7 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Log
                   in</a>
-                <a href="https://calendly.com/d/ckhw-fph-hqv"
+                <a href="https://calendly.com/everydaymoney/30min"
                    class="-mx-3 block rounded-[22px] px-7 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Sign
                   up</a>
               </div>
@@ -88,7 +88,7 @@
             <p class="mt-6 md:text-2xl text-lg leading-8 font-light text-[#90A3BF]">Sustain your financial runway and
               gain insights into your day-to-day expenses.</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-              <a href="https://calendly.com/d/ckhw-fph-hqv"
+              <a href="https://calendly.com/everydaymoney/30min"
                  class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
                 a Free Demo</a>
               <a href="#pricing"
@@ -154,7 +154,7 @@
           </div>
         </div>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="https://calendly.com/d/ckhw-fph-hqv"
+          <a href="https://calendly.com/everydaymoney/30min"
              class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
             started for Free</a>
           <a href="#pricing"
