@@ -84,7 +84,7 @@
           <div class="mx-auto w-full
            text-center">
             <h1 class="text-4xl font-bold tracking-tight text-white md:text-7xl">Manage Your Startup's OpEx Efficiently
-              with EverydayMoney {{ $t('welcome') }}</h1>
+              with EverydayMoney</h1>
             <p class="mt-6 md:text-2xl text-lg leading-8 font-light text-[#90A3BF]">Sustain your financial runway and
               gain insights into your day-to-day expenses.</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
