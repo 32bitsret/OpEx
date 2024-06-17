@@ -15,24 +15,24 @@
             <a v-for="item in navigation" :key="item.name" :href="`#${item.href}`"
                class="text-xs font-light leading-6 text-white">{{ item.name }}</a>
           </div>
-          <div class="lg:ml-28 mr-12">
-            <UInputMenu class="w-[90px]" v-model="selected" :options="people">
+          <div class="hidden lg:flex gap-12 ml-12 lg:flex-1 lg:justify-end items-center">
+            <a href="https://business.everydaymoney.app" class="text-white font-light text-xs">Login</a>
+            <a type="button" href="https://calendly.com/d/ckhw-fph-hqv"
+               class="bg-[#1C5ED3] rounded-[22px] bold py-2 px-10  text-xs font-light leading-6 text-white">Sign Up</a>
+          </div>
+          <div class="lg:ml-28 ml-12 input-menu">
+            <UInputMenu class="w-[130px]" v-model="selected" :options="people">
               <template #leading>
                 <UAvatar :src="`/${selected?.language}.svg`" size="2xs" />
               </template>
             </UInputMenu>
           </div>
-          <div class="flex gap-4 lg:hidden">
+          <div class="flex gap-4 ml-12 lg:hidden">
             <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
                     @click="mobileMenuOpen = true">
               <span class="sr-only">Open main menu</span>
               <UIcon name="i-heroicons-bars-2" class="h-6 w-6 text-white" aria-hidden="true"/>
             </button>
-          </div>
-          <div class="hidden lg:flex gap-12 lg:flex-1 lg:justify-end items-center">
-            <a href="https://business.everydaymoney.app" class="text-white font-light text-xs">Login</a>
-            <a type="button" href="https://calendly.com/d/ckhw-fph-hqv"
-               class="bg-[#1C5ED3] rounded-[22px] bold py-2 px-10  text-xs font-light leading-6 text-white">Sign Up</a>
           </div>
         </div>
       </nav>
@@ -100,15 +100,15 @@
             <div
                 class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <NuxtImg src="/app-screenshot.png" alt="App screenshot"
-                       class="rounded-md shadow-2xl ring-1 ring-gray-900/10"/>
+                       class="rounded-md w-full shadow-2xl ring-1 mb-[-20px] ring-gray-900/10"/>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="bg-white relative py-24 isolate min-h-[60vh]" id="about">
+    <div class="bg-white border-t-2 relative py-24 isolate min-h-[60vh]" id="about">
       <div class="container px-6 lg:px-8">
-        <h4 class="text-center text-lg">About Us</h4>
+        <h4 class="text-center text-lg font-semibold">About Us</h4>
         <h2 class="font-bold text-[#1C5ED3] text-4xl text-center my-4 tracking-tight">Helping Startups Manage
           Operational Expenses</h2>
         <p class="text-[#596780] text-lg max-w-2xl mx-auto text-center opacity-[.64]">EverydayMoney helps startups
@@ -124,7 +124,7 @@
                   <div class="absolute left-[-30px] rounded-[16px] p-3 bg-[#FF5D31] top-1 text-[#1C5ED3]">
                     <NuxtImg :src="`/${feature.icon}.svg`" class="w-5"/>
                   </div>
-                  <span class="text-2xl text-[#040815] font-medium">{{ feature.name }}</span>
+                  <span class="text-2xl text-[#040815] font-semibold">{{ feature.name }}</span>
                 </dt>
                 {{ ' ' }}
                 <dd class="text-sm text-[#596780]">{{ feature.description }}</dd>
@@ -145,7 +145,7 @@
         </div>
         <h4 class="uppercase text-sm text-center font-semibold text-[#1C5ED3]">How it Works</h4>
         <h2 class="tracking-[-.3px] text-2xl max-w-2xl mx-auto text-white my-4 text-center font-black">Few Easy Steps and Done</h2>
-        <p class="max-w-lg mb-14 mx-auto text-center text-[#90A3BF] tracking-[-.2px]">In just few easy step, you are
+        <p class="max-w-xl mb-14 mx-auto text-center text-[#90A3BF] tracking-[-.2px]">In just few easy step, you are
           all set to manage your business finances. Manage all expenses with EverdayMoney all in one place.</p>
         <div class="grid w-full md:grid-cols-3 gap-16 max-w-3xl mx-auto">
           <div class="flex flex-col gap-4" v-for="howTo in howTos" :key="howTo.title">
@@ -164,9 +164,9 @@
     </div>
     <div class="bg-white relative isolate py-24 min-h-[60vh]" id="services">
       <div class="container px-6 lg:px-8">
-        <h4 class="font-medium mb-4">Services</h4>
+        <h4 class="font-semibold mb-4">Services</h4>
         <div class="grid md:grid-cols-[1fr_2fr] gap-10">
-          <h3 class="text-[#1C5ED3] tracking-tight text-2xl font-semibold">Do even more with EverydayMoney</h3>
+          <h3 class="text-[#1C5ED3] tracking-tight text-2xl lg:text-4xl font-semibold">Do even more with EverydayMoney</h3>
           <p class="text-[#596780] tracking-tight">
             Unlock the Full Potential of Your Startup with Our Comprehensive Suite of Tools and Solutions
             Designed to Optimize Operational Expense Management, Enhance Financial Planning, and Sustain Your
@@ -207,26 +207,26 @@
     </div>
     <div class="relative isolate py-24 bg-[#FF5D31] min-h-[60vh]">
       <div class="container px-6 lg:px-8">
-        <h4 class="uppercase text-sm text-center font-semibold text-[#0D243F]">What they say</h4>
-        <h2 class="tracking-[-.3px] text-2xl max-w-2xl mx-auto text-white my-4 text-center font-black">Our Users Kind
+        <h4 class="uppercase text-md text-center font-bold text-[#0D243F]">What they say</h4>
+        <h2 class="tracking-[-.3px] text-4xl max-w-2xl mx-auto text-white my-4 text-center font-bold">Our Users Kind
           Words</h2>
-        <p class="max-w-lg mb-14 mx-auto text-center text-white tracking-[-.2px]">Hear from startups like yours about
+        <p class="max-w-2xl mb-14 mx-auto text-center text-white tracking-[-.2px]">Hear from startups like yours about
           how EverydayMoney has transformed their operational expense management and helped sustain their financial
           runway.</p>
         <div class="mt-16">
           <UCarousel v-slot="{ item, index }" ref="carouselRef" :items="carouselItems"
-                     :ui="{ container: 'gap-10', item: 'snap-start lg:w-1/3 sm:w-1/2 w-full', arrows: { wrapper:
+                     :ui="{ container: 'gap-10 pb-12', item: 'snap-start lg:w-1/3 sm:w-1/2 w-full', arrows: { wrapper:
                      'slider-icons'
                      } }"
                      arrows>
             <figure class="rounded-[16px] flex flex-col justify-between bg-[#FF3F0A] p-8 text-sm leading-6">
               <div>
-                <h4 class="text-white font-bold mb-2">{{ item.title }}</h4>
-                <blockquote class="text-white">
+                <h4 class="text-white font-semibold mb-2">{{ item.title }}</h4>
+                <blockquote class="text-white font-light">
                   <p>{{ `“${item.subtitle}”` }}</p>
                 </blockquote>
               </div>
-              <figcaption class="mt-6 flex items-center gap-x-4">
+              <figcaption class="mt-6 flex border-t-[1px] border-gray-200/20 pt-4 items-center gap-x-4">
                 <NuxtImg class="h-10 w-10 rounded-[16px] bg-gray-50" :src="`/${item.avatar.src}.png`" alt=""/>
                 <div>
                   <div class="font-semibold text-white">{{ item.name }}</div>
@@ -266,9 +266,9 @@
             <div>
               <div class="flex items-center justify-between gap-x-4">
                 <div class="flex items-center gap-2">
-                  <NuxtImg :src="`${tier.name.toLowerCase()}-tier.svg`" class="w-5" :alt="tier.name"/>
+                  <NuxtImg :src="`${tier.name.toLowerCase()}-tier.svg`" class="w-8" :alt="tier.name"/>
                   <h3 :id="tier.id"
-                      :class="[tier.mostPopular ? 'text-[#1C5ED3]' : 'text-gray-900', 'text-lg font-semibold leading-8']">
+                      class="text-gray-900 text-2xl font-semibold leading-8">
                     {{ tier.name }}</h3>
                 </div>
                 <p v-if="tier.mostPopular"
@@ -321,7 +321,7 @@
           <div>
             <NuxtImg src="/last-banner.svg"
                      alt="Banner screenshot"
-                     class="w-full max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 mb-[-20px]"/>
+                     class="w-full lg:min-w-[55vw] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 mb-[-20px]"/>
           </div>
         </div>
       </div>
@@ -413,15 +413,14 @@
 import {storeToRefs} from 'pinia'
 import {Dialog, DialogPanel, RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue"
 import {useStore} from "~/store"
-import type { Avatar } from '#ui/types'
 
 const people = [{
   id: '1',
-  label: 'EN',
+  label: 'Nigeria',
   language: 'en'
 }, {
   id: '2',
-  label: 'FR',
+  label: 'French',
   language: 'fr'
 }]
 
@@ -470,10 +469,31 @@ const frequency = ref(frequencies.value[0])
 body {
   @apply antialiased font-sans text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900;
 }
+.input-menu input {
+  background: transparent;
+  color: #fafafa;
+  box-shadow: none !important;
+  outline: none !important;
+}
 
 .slider-icons {
-  position: relative;
-  width: 110px;
-  margin: 75px auto 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row-reverse;
+  width: 140px;
 }
+
+.slider-icons button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider-icons button:last-of-type {
+  right: 0;
+}
+
 </style>
