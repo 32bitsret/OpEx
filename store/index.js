@@ -10,7 +10,7 @@ export const useStore = defineStore('main', {
         navigation: [
             {name: 'About Us', href: 'about'},
             {name: 'How it Works', href: 'how-it-works'},
-            {name: 'Pricing', href: 'pricing'},
+            // {name: 'Pricing', href: 'pricing'},
         ],
         howTos: [
             {title: 'Register your Spend.In account.', img: 'how-1'},
@@ -131,7 +131,7 @@ export const useStore = defineStore('main', {
             ],
             resources: [
                 {name: 'Blog', href: 'https://blog.everydaymoney.app'},
-                {name: 'Pricing', href: '#'},
+                // {name: 'Pricing', href: '#'},
                 {name: 'FAQ', href: '#'},
                 {name: 'Events', href: '#'},
                 {name: 'Ebook & Guide', href: '#'},
