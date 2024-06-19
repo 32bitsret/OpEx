@@ -91,9 +91,6 @@
               <a href="https://calendly.com/everydaymoney/30min"
                  class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
                 a Free Demo</a>
-              <a href="#pricing"
-                 class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See
-                Pricing</a>
             </div>
           </div>
           <div class="mt-16 flow-root sm:mt-24">
@@ -157,8 +154,6 @@
           <a href="https://calendly.com/everydaymoney/30min"
              class="rounded-[22px] bg-[#1C5ED3] px-7 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C5ED3]">Get
             started for Free</a>
-          <a href="#pricing"
-             class="text-sm rounded-[22px] px-7 py-2.5 font-semibold bg-[#1A202C] leading-6 text-white">See Pricing</a>
         </div>
       </div>
     </div>
@@ -239,64 +234,6 @@
       </div>
     </div>
 
-    <div class="bg-white py-24 sm:py-32" id="pricing">
-      <div class="container px-6 lg:px-8">
-        <div class="mx-auto max-w-4xl text-center">
-          <p class="mt-2 text-3xl font-black text-[#0D121F] sm:text-4xl tracking-[-.3px]">Ready to Get Started?</p>
-        </div>
-        <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-[#596780] tracking-[-.2px]">Choose a plan
-          that suits your
-          business needs</p>
-        <div class="mt-16 flex justify-center">
-          <RadioGroup v-model="frequency"
-                      class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200">
-            <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
-            <RadioGroupOption as="template" v-for="option in frequencies" :key="option.value" :value="option" v-slot="{
-                        checked }">
-              <div
-                  :class="[checked ? 'bg-[#1C5ED3] text-white' : 'text-gray-500', 'cursor-pointer rounded-full px-2.5 py-1']">
-                <span>{{ option.label }}</span>
-              </div>
-            </RadioGroupOption>
-          </RadioGroup>
-        </div>
-        <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          <div class="p-6 rounded-[16px] flex flex-col justify-between bg-[#F3F5F7]" v-for="tier in pricingTiers"
-               :key="tier.id">
-            <div>
-              <div class="flex items-center justify-between gap-x-4">
-                <div class="flex items-center gap-2">
-                  <NuxtImg :src="`${tier.name.toLowerCase()}-tier.svg`" class="w-8" :alt="tier.name"/>
-                  <h3 :id="tier.id"
-                      class="text-gray-900 text-2xl font-semibold leading-8">
-                    {{ tier.name }}</h3>
-                </div>
-                <p v-if="tier.mostPopular"
-                   class="rounded-full bg-[#0D243F] px-2.5 py-1 text-xs leading-5 text-white">Most
-                  popular</p>
-              </div>
-              <p class="mt-4 text-sm leading-6 text-[#596780]">{{ tier.miniDesc }}</p>
-              <p class="mt-6 flex items-baseline gap-x-1">
-                <span class="text-4xl font-bold tracking-tight text-gray-900">{{ tier.price[frequency.value] }}</span>
-                <span class="text-sm font-semibold leading-6 text-gray-600">{{ frequency.priceSuffix }}</span>
-              </p>
-              <p class="mt-4 text-sm leading-6 text-[#1A202C]">{{ tier.description }}</p>
-              <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
-                <li v-for="feature in tier.features" :key="feature" class="flex gap-x-3">
-                  <UIcon name="i-heroicons-check-circle-20-solid" class="h-6 w-5 flex-none text-[#7568FF]"
-                         aria-hidden="true"/>
-                  {{ feature }}
-                </li>
-              </ul>
-            </div>
-            <a :href="tier.href" :aria-describedby="tier.id"
-               class="bg-[#1C5ED3] text-white shadow-sm mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7568FF]">{{
-                tier.name === 'Free' ? 'Get your Free Plan' : 'Get started'
-              }}</a>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="relative isolate pt-24 min-h-[30vh]">
       <div class="absolute inset-x-0 top-[50%] translate-y-[-50%] -z-10 transform-gpu overflow-hidden opacity-5"
            aria-hidden="true">
