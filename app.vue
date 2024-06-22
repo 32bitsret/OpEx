@@ -399,7 +399,7 @@ const mobileMenuOpen = ref(false)
 const frequency = ref(frequencies.value[0])
 </script>
 
-<script lang="js">
+<script lang="ts">
     (function(d, w, c) {
         w.BrevoConversationsID = '666ecf046a05c93c5e7ead89';
         w[c] = w[c] || function() {
