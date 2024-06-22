@@ -345,6 +345,7 @@ import ChatWidget from './ChatWidget.vue'
       </div>
     </div>
   </div>
+  <ChatWidget />
 </template>
 
 <script setup lang="ts">
@@ -437,4 +438,3 @@ body {
 }
 
 </style>
-<ChatWidget />
