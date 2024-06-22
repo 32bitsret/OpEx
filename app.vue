@@ -398,8 +398,8 @@ onMounted(() => {
 const mobileMenuOpen = ref(false)
 const frequency = ref(frequencies.value[0])
 </script>
-<!-- Brevo Conversations {literal} -->
-<script>
+
+<script setup lang="js">
     (function(d, w, c) {
         w.BrevoConversationsID = '666ecf046a05c93c5e7ead89';
         w[c] = w[c] || function() {
@@ -411,7 +411,7 @@ const frequency = ref(frequencies.value[0])
         if (d.head) d.head.appendChild(s);
     })(document, window, 'BrevoConversations');
 </script>
-<!-- /Brevo Conversations {/literal} -->
+
 <style>
 * {
   font-family: Poppins, sans-serif;
