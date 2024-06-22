@@ -397,6 +397,7 @@ onMounted(() => {
 })
 const mobileMenuOpen = ref(false)
 const frequency = ref(frequencies.value[0])
+</script>
 <script>
     (function(d, w, c) {
         w.BrevoConversationsID = '666ecf046a05c93c5e7ead89';
@@ -408,8 +409,6 @@ const frequency = ref(frequencies.value[0])
         s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
         if (d.head) d.head.appendChild(s);
     })(document, window, 'BrevoConversations');
-</script>
-<!-- /Brevo Conversations {/literal} -->
 </script>
 <style>
 * {
