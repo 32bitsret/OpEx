@@ -1,3 +1,4 @@
+import ChatWidget from './ChatWidget.vue'
 <template>
   <div class="bg-[#001835] overflow-x-hidden max-w-full" id="top">
     <header class="">
@@ -436,3 +437,4 @@ body {
 }
 
 </style>
+<ChatWidget />
