@@ -16,7 +16,7 @@
                class="text-xs font-light leading-6 text-white">{{ item.name }}</a>
           </div>
           <div class="hidden lg:flex gap-12 ml-12 lg:flex-1 lg:justify-end items-center">
-            <a href="https://web.everydaymoney.app" class="text-white font-light text-xs">Login</a>
+            <a href="https://web.everydaymoney.app/login" class="text-white font-light text-xs">Login</a>
             <a type="button" href="https://meet.brevo.com/everydaymoney-meet"
                class="bg-[#1C5ED3] rounded-[22px] bold py-2 px-10  text-xs font-light leading-6 text-white">Sign Up</a>
           </div>
@@ -60,7 +60,7 @@
                 </a>
               </div>
               <div class="py-6">
-                <a href="https://web.everydaymoney.app/auth/login"
+                <a href="https://web.everydaymoney.app/login"
                    class="-mx-3 block rounded-[22px] px-7 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Log
                   in</a>
                 <a href="https://meet.brevo.com/everydaymoney-meet"
