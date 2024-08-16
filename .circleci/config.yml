@@ -11,6 +11,14 @@ jobs:
       - checkout
       - node/install:
           node-version: '20.12'
+      - run:
+          name: Clear npm cache
+          command: npm cache clean --force
+      - run:
+          name: Remove node_modules and package-lock.json
+          command: |
+            rm -rf node_modules
+            rm -f package-lock.json
       - node/install-packages:
           override-ci-command: npm install
       - run:
