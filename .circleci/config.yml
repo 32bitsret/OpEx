@@ -11,24 +11,38 @@ jobs:
       - checkout
       - node/install:
           node-version: '16.14'
-      - restore_cache:
-          keys:
-            - npm-packages-{{ checksum "package-lock.json" }}
       - node/install-packages:
-          override-ci-command: npm ci
-      - save_cache:
-          paths:
-            - ~/.npm
-          key: npm-packages-{{ checksum "package-lock.json" }}
+          override-ci-command: npm install
       - run:
-          command: npm run generate
-          name: Generate static site
-      - aws-s3/sync:
-          from: dist
-          to: 's3://em-opex-website'
-          arguments: |
-            --delete \
-            --cache-control "max-age=86400"
+          command: npm run build
+          name: Build app
+      - aws-s3/copy:
+          arguments: '--recursive'
+          from: dist/
+          to: "s3://em-opex-website"
+      - run: echo "Successfully deployed to production cloudfront"
+    # steps:
+    #   - checkout
+    #   - node/install:
+    #       node-version: '16.14'
+    #   - restore_cache:
+    #       keys:
+    #         - npm-packages-{{ checksum "package-lock.json" }}
+    #   - node/install-packages:
+    #       override-ci-command: npm ci
+    #   - save_cache:
+    #       paths:
+    #         - ~/.npm
+    #       key: npm-packages-{{ checksum "package-lock.json" }}
+    #   - run:
+    #       command: npm run generate
+    #       name: Generate static site
+    #   - aws-s3/sync:
+    #       from: dist
+    #       to: 's3://em-opex-website'
+    #       arguments: |
+    #         --delete \
+    #         --cache-control "max-age=86400"
       # - aws-cli/setup
       # - run:
       #     name: Invalidate CloudFront
