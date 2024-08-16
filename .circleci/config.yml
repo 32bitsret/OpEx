@@ -10,21 +10,21 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Yarn
+          command: npm install -g yarn
+      - restore_cache:
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
           name: Install dependencies
-          command: npm install --legacy-peer-deps
-      - run:
-          name: Clear npm cache
-          command: npm cache clean --force
-      - run:
-          name: Remove node_modules and package-lock.json
-          command: |
-            rm -rf node_modules
-            rm -f package-lock.json
-      - node/install-packages:
-          override-ci-command: npm install
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          paths:
+            - ~/.cache/yarn
+          key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: List installed packages
-          command: npm list --depth=0
+          command: yarn list --depth=0
       - run:
           name: Debug Pinia installation
           command: |
@@ -32,9 +32,9 @@ jobs:
             ls -l node_modules/@pinia || echo "@pinia directory not found"
       - run:
           name: Check Pinia version
-          command: npm list pinia || echo "Pinia not installed"
+          command: yarn list --pattern pinia || echo "Pinia not installed"
       - run:
-          command: npm run build
+          command: yarn build
           name: Build app
       - aws-s3/copy:
           arguments: '--recursive'
