@@ -5,12 +5,13 @@ orbs:
   aws-cli: circleci/aws-cli@2.0.3
 jobs:
   build-deploy-prod:
-    executor:
-      name: node/default
+    docker:
+      - image: cimg/node:20.12.0
     steps:
       - checkout
-      - node/install:
-          node-version: '20.12'
+      - run:
+          name: Install dependencies
+          command: npm install --legacy-peer-deps
       - run:
           name: Clear npm cache
           command: npm cache clean --force
