@@ -16,7 +16,7 @@ jobs:
       # - run:
       #     command: npm run build
       #     name: Build app
-       - run:
+      - run:
           command: npm run generate
           name: Generate static site
       - aws-s3/copy:
