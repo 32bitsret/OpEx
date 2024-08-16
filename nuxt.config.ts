@@ -1,8 +1,9 @@
 export default defineNuxtConfig({
+    ssr: true,
     devtools: {enabled: true},
     colorMode: {
-        preference: 'light', // default value of $colorMode.preference
-        fallback: 'light', // fallback value if not system preference found
+        preference: 'light',
+        fallback: 'light',
         hid: 'nuxt-color-mode-script',
         globalName: '__NUXT_COLOR_MODE__',
         componentName: 'ColorScheme',
@@ -26,5 +27,19 @@ export default defineNuxtConfig({
     },
     i18n: {
         vueI18n: './i18n.config.ts'
+    },
+    nitro: {
+        prerender: {
+            crawlLinks: true,
+            routes: ['/'],
+            ignore: ['/ignore-this-route']
+        },
+        static: true
+    },
+    app: {
+        baseURL: '/' // Ensure this matches your deployment URL structure
+    },
+    experimental: {
+        payloadExtraction: false
     }
 })
