@@ -12,27 +12,6 @@ jobs:
       - run:
           name: Install Yarn
           command: npm install -g yarn
-      - restore_cache:
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          paths:
-            - ~/.cache/yarn
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: List installed packages
-          command: yarn list --depth=0
-      - run:
-          name: Debug Pinia installation
-          command: |
-            ls -l node_modules/pinia || echo "Pinia directory not found"
-            ls -l node_modules/@pinia || echo "@pinia directory not found"
-      - run:
-          name: Check Pinia version
-          command: yarn list --pattern pinia || echo "Pinia not installed"
       - run:
           command: yarn build
           name: Build app
