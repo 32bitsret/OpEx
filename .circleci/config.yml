@@ -13,15 +13,16 @@ jobs:
           node-version: '18.17'
       - node/install-packages:
           override-ci-command: npm install
-      # - run:
-      #     command: npm run build
-      #     name: Build app
       - run:
-          command: npm run generate
-          name: Generate static site
+          command: npm run build
+          name: Build app
+      # - run:
+      #     command: npm run generate
+      #     name: Generate static site
       - aws-s3/copy:
           arguments: '--recursive'
-          from: dist/
+          # from: dist/
+          from: .output/public
           to: "s3://em-opex-website"
       - run: echo "Successfully deployed to production cloudfront"
     # steps:
