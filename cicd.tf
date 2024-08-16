@@ -1,6 +1,6 @@
 # create ci/cd user with access keys (for build system)
 resource "aws_iam_user" "cicd_ops" {
-  name = "devOps_em_checkout_cicd_ops"
+  name = "devOps_opexwebsite_cicd_ops"
 }
 
 resource "aws_iam_access_key" "cicd_keys" {
