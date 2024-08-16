@@ -22,45 +22,24 @@ jobs:
       - node/install-packages:
           override-ci-command: npm install
       - run:
+          name: List installed packages
+          command: npm list --depth=0
+      - run:
+          name: Debug Pinia installation
+          command: |
+            ls -l node_modules/pinia || echo "Pinia directory not found"
+            ls -l node_modules/@pinia || echo "@pinia directory not found"
+      - run:
+          name: Check Pinia version
+          command: npm list pinia || echo "Pinia not installed"
+      - run:
           command: npm run build
           name: Build app
-      # - run:
-      #     command: npm run generate
-      #     name: Generate static site
       - aws-s3/copy:
           arguments: '--recursive'
-          # from: dist/
           from: .output/public
           to: "s3://em-opex-website"
       - run: echo "Successfully deployed to production cloudfront"
-    # steps:
-    #   - checkout
-    #   - node/install:
-    #       node-version: '16.14'
-    #   - restore_cache:
-    #       keys:
-    #         - npm-packages-{{ checksum "package-lock.json" }}
-    #   - node/install-packages:
-    #       override-ci-command: npm ci
-    #   - save_cache:
-    #       paths:
-    #         - ~/.npm
-    #       key: npm-packages-{{ checksum "package-lock.json" }}
-    #   - run:
-    #       command: npm run generate
-    #       name: Generate static site
-    #   - aws-s3/sync:
-    #       from: dist
-    #       to: 's3://em-opex-website'
-    #       arguments: |
-    #         --delete \
-    #         --cache-control "max-age=86400"
-      # - aws-cli/setup
-      # - run:
-      #     name: Invalidate CloudFront
-      #     command: |
-      #       aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
-      # - run: echo "Successfully deployed to production and invalidated CloudFront cache"
 workflows:
   version: 2
   build-publish-and-deploy:
