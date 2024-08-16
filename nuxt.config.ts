@@ -15,9 +15,9 @@ export default defineNuxtConfig({
         "@nuxt/image",
         '@nuxtjs/google-fonts',
         "@aleios10/nuxt-scroll-spy-composable",
-        '@pinia/nuxt',
         '@pinia-plugin-persistedstate/nuxt',
-        '@nuxtjs/i18n'
+        '@nuxtjs/i18n',
+        '@pinia/nuxt',
     ],
     googleFonts: {
         families: {
