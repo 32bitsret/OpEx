@@ -145,7 +145,7 @@ data "aws_iam_policy_document" "website_s3_policy" {
 
 resource "aws_s3_bucket_policy" "website_bucket_policy" {
   bucket = aws_s3_bucket.website_bucket.id
-  policy = data.aws_iam_policy_document.prod_s3_policy.json
+  policy = data.aws_iam_policy_document.website_s3_policy.json
 }
 
 output "prod_frontend_cf_domain_name" {
