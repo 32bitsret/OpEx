@@ -45,7 +45,7 @@ resource "aws_cloudfront_origin_access_identity" "prod_origin_access_identity" {
 resource "aws_cloudfront_distribution" "prod_cf_distribution" {
   origin {
     domain_name = aws_s3_bucket.website_bucket.bucket_regional_domain_name
-    origin_id   = "opexwebsite"
+    origin_id   = "em-opex-website.s3-website-eu-west-3.amazonaws.com"
 
     s3_origin_config {
       origin_access_identity = "${aws_cloudfront_origin_access_identity.prod_origin_access_identity.cloudfront_access_identity_path}"
@@ -61,7 +61,7 @@ resource "aws_cloudfront_distribution" "prod_cf_distribution" {
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "opexwebsite"
+    target_origin_id = "em-opex-website.s3-website-eu-west-3.amazonaws.com"
 
     forwarded_values {
       query_string = false
@@ -82,7 +82,7 @@ resource "aws_cloudfront_distribution" "prod_cf_distribution" {
     path_pattern     = "/index.html"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
     cached_methods   = ["GET", "HEAD", "OPTIONS"]
-    target_origin_id = "opexwebsite"
+    target_origin_id = "em-opex-website.s3-website-eu-west-3.amazonaws.com"
 
     forwarded_values {
       query_string = false
