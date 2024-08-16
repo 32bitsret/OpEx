@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Install Yarn
-          command: npm install -g yarn
+          command: yarn install
       - run:
           command: yarn build
           name: Build app
