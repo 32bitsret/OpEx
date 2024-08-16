@@ -56,7 +56,7 @@ resource "aws_cloudfront_distribution" "prod_cf_distribution" {
   is_ipv6_enabled = true
 
   default_root_object = "index.html"
-  aliases = ["${var.frontend_domain}"]
+  aliases = ["${var.frontend_domain}",]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
