@@ -1,6 +1,6 @@
 # Create the policy to access the S3 bucket
 resource "aws_iam_policy" "em_checkout_ci_policy" {
-  name        = "em_checkout-ci-policy"
+  name        = "opex-website-ci-policy"
   path        = "/"
   description = "CI policy"
 
@@ -32,7 +32,7 @@ resource "aws_iam_policy" "em_checkout_ci_policy" {
 
 # Attach the policy to our user
 resource "aws_iam_policy_attachment" "em_checkout_ci_attachment" {
-  name       = "em_checkout-ci-attachment"
+  name       = "opexwebsite-ci-attachment"
   users   = [aws_iam_user.cicd_ops.name]
   policy_arn = aws_iam_policy.em_checkout_ci_policy.arn
 }
