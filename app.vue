@@ -165,7 +165,7 @@
           <p class="text-[#596780] tracking-tight">
             Unlock the Full Potential of Your Startup with Our Comprehensive Suite of Tools and Solutions
             Designed to Optimize Operational Expense Management, Enhance Financial Planning, and Sustain Your
-            Business Growth 
+            Business Growth
           </p>
         </div>
         <div class="grid md:grid-cols-3 gap-10 mt-16">
