@@ -102,8 +102,8 @@ resource "aws_cloudfront_distribution" "prod_cf_distribution" {
   price_class = "PriceClass_100"
 
   viewer_certificate {
-    cloudfront_default_certificate = true
-    # acm_certificate_arn = "${aws_acm_certificate.frontend_certificate.arn}"
+    # cloudfront_default_certificate = true
+    acm_certificate_arn = "${aws_acm_certificate.frontend_certificate.arn}"
     minimum_protocol_version = "TLSv1"
     ssl_support_method = "sni-only"
   }
