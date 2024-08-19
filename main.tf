@@ -38,14 +38,14 @@ resource "aws_s3_bucket" "www_bucket" {
   bucket = "www.${var.frontend_domain}"
 }
 
-resource "aws_s3_bucket_website_configuration" "www_bucket_config" {
-  bucket = aws_s3_bucket.www_bucket.id
+# resource "aws_s3_bucket_website_configuration" "www_bucket_config" {
+#   bucket = aws_s3_bucket.www_bucket.id
 
-  redirect_all_requests_to {
-    host_name = var.frontend_domain
-    protocol  = "https"
-  }
-}
+#   redirect_all_requests_to {
+#     host_name = var.frontend_domain
+#     protocol  = "https"
+#   }
+# }
 
 # resource "aws_s3_bucket_public_access_block" "www_bucket_public_access" {
 #   bucket = aws_s3_bucket.www_bucket.id
