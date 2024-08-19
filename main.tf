@@ -34,9 +34,9 @@ resource "aws_s3_bucket" "website_bucket" {
   }
 }
 
-resource "aws_s3_bucket" "www_bucket" {
-  bucket = "www.${var.frontend_domain}"
-}
+# resource "aws_s3_bucket" "www_bucket" {
+#   bucket = "www.${var.frontend_domain}"
+# }
 
 # resource "aws_s3_bucket_website_configuration" "www_bucket_config" {
 #   bucket = aws_s3_bucket.www_bucket.id
