@@ -5,7 +5,7 @@
            aria-label="Global">
         <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">EveryDayMoney</span>
+            <span class="sr-only">EverydayMoney</span>
             <NuxtImg class="h-8 w-auto hidden lg:block" src="/full-logo.svg" alt="Full width logo"/>
             <NuxtImg class="h-8 w-auto lg:hidden" src="/logo.svg" alt="Full width logo"/>
           </a>
@@ -357,7 +357,7 @@ const people = [{
   language: 'en'
 }, {
   id: '2',
-  label: 'French',
+  label: 'France',
   language: 'fr'
 }]
 
