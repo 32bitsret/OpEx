@@ -137,10 +137,10 @@ export const useStore = defineStore('main', {
                 {name: 'Ebook & Guide', href: '#'},
             ],
             follow: [
-                {name: 'LinkedIn', href: 'https://www.linkedin.com/company/everydaymoney/'},
+                {name: 'LinkedIn', href: 'https://www.linkedin.com/company/everydaymoneyhq/'},
                 {name: 'X (Twitter)', href: 'https://x.com/everydaymoneyhq'},
                 {name: 'Instagram', href: 'https://instagram.com/everydaymoneyhq'},
-                {name: 'Facebook', href: 'https://facebook.com/everydaymoneyng'},
+                {name: 'Facebook', href: 'https://facebook.com/everydaymoneyhq'},
                 {name: 'YouTube', href: 'https://www.youtube.com/channel/UCQkd3xmlhhIkdYUCvhEKvQQ'},
             ]
         },
