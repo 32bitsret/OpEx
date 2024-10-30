@@ -351,13 +351,15 @@ import {storeToRefs} from 'pinia'
 import {Dialog, DialogPanel, RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue"
 import {useStore} from "~/store"
 
-const people = [{
-  id: '1',
-  label: 'Nigeria',
-  language: 'en'
-}, {
+const people = [
+//   {
+//   id: '1',
+//   label: 'Nigeria',
+//   language: 'en'
+// }, 
+  {
   id: '2',
-  label: 'French',
+  label: 'France',
   language: 'fr'
 }]
 
